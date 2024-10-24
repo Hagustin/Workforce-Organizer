@@ -62,26 +62,42 @@ Data is displayed in formatted tables for better readability
 Database Schema
 The database consists of three tables:
 
-## Department
+## Design
+![Database schema includes tables labeled “employee,” role,” and “department.”](./Assets/100-sql-challenge-ERD.png)
 
-id: SERIAL PRIMARY KEY
-name: VARCHAR(30) UNIQUE NOT NULL
-Employee_Roles
+As the image illustrates, your schema should contain the following three tables:
 
-id: SERIAL PRIMARY KEY
-title: VARCHAR(30) UNIQUE NOT NULL
-salary: DECIMAL NOT NULL
-department_id: INTEGER NOT NULL (foreign key reference to Department)
-Employee
+* `department`
 
-id: SERIAL PRIMARY KEY
-first_name: VARCHAR(30) NOT NULL
-last_name: VARCHAR(30) NOT NULL
-role_id: INTEGER NOT NULL (foreign key reference to Employee_Roles)
-manager_id: INTEGER (foreign key reference to Employee)
+  * `id`: `SERIAL PRIMARY KEY`
+
+  * `name`: `VARCHAR(30) UNIQUE NOT NULL` to hold department name
+
+* `role`
+
+  * `id`: `SERIAL PRIMARY KEY`
+
+  * `title`: `VARCHAR(30) UNIQUE NOT NULL` to hold role title
+
+  * `salary`: `DECIMAL NOT NULL` to hold role salary
+
+  * `department_id`: `INTEGER NOT NULL` to hold reference to department role belongs to
+
+* `employee`
+
+  * `id`: `SERIAL PRIMARY KEY`
+
+  * `first_name`: `VARCHAR(30) NOT NULL` to hold employee first name
+
+  * `last_name`: `VARCHAR(30) NOT NULL` to hold employee last name
+
+  * `role_id`: `INTEGER NOT NULL` to hold reference to employee role
+
+  * `manager_id`: `INTEGER` to hold reference to another employee that is the manager of the current employee (`null` if the employee has no manager)
+
 
 ## Walkthrough Video
-A walkthrough video demonstrating the functionality of the Employee Tracker can be found here.
+Watch the walkthrough video to see how the Employee Tracker application works: [Watch the Video](https://drive.google.com/file/d/1FLUhgZLPQ3Ry3VN8pkkuIm1Pve3QcuQK/view?usp=sharing)
 
 ## Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request. For any major changes, please open an issue first to discuss what you would like to change.
